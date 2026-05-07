@@ -19,13 +19,7 @@ cp .env.example .env
 ```
 
 2. Ustaw własny `SENTRY_DSN` w `.env`.
-3. Załaduj zmienne środowiskowe (np. w `zsh`):
-
-```bash
-set -a
-source .env
-set +a
-```
+3. Aplikacja ładuje `.env` automatycznie przy starcie.
 
 ## 3. Uruchomienie
 

@@ -1,0 +1,530 @@
+{
+  "platform": "python",
+  "event_id": "16dc815b7947465ebdac4c423cab1781",
+  "timestamp": 1778013614.955272,
+  "datetime": "2026-05-05T20:40:14.955Z",
+  "project": 1,
+  "level": "error",
+  "exception": {
+    "values": [
+      {
+        "type": "HTTPException",
+        "value": "Błąd testowy zgłoszony do Sentry",
+        "module": "fastapi.exceptions",
+        "mechanism": {
+          "type": "starlette",
+          "handled": true
+        },
+        "stacktrace": {
+          "frames": [
+            {
+              "vars": {
+                "app": "<function request_response.<locals>.app.<locals>.app at 0x107669c60>",
+                "exc": "HTTPException(status_code=500, detail='Błąd testowy zgłoszony do Sentry')",
+                "conn": {
+                  "asgi": {
+                    "version": "'3.0'",
+                    "spec_version": "'2.3'"
+                  },
+                  "path": "'/error/http'",
+                  "type": "'http'",
+                  "client": [
+                    "'127.0.0.1'",
+                    "56041"
+                  ],
+                  "method": "'GET'",
+                  "scheme": "'http'",
+                  "server": [
+                    "'127.0.0.1'",
+                    "8000"
+                  ],
+                  "raw_path": "b'/error/http'",
+                  "root_path": "''",
+                  "http_version": "'1.1'"
+                },
+                "send": "<function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x10766aac0>",
+                "scope": {
+                  "asgi": {
+                    "version": "'3.0'",
+                    "spec_version": "'2.3'"
+                  },
+                  "path": "'/error/http'",
+                  "type": "'http'",
+                  "client": [
+                    "'127.0.0.1'",
+                    "56041"
+                  ],
+                  "method": "'GET'",
+                  "scheme": "'http'",
+                  "server": [
+                    "'127.0.0.1'",
+                    "8000"
+                  ],
+                  "raw_path": "b'/error/http'",
+                  "root_path": "''",
+                  "http_version": "'1.1'"
+                },
+                "sender": "<function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x107668cc0>",
+                "handler": "<function patch_exception_middleware.<locals>._sentry_middleware_init.<locals>._sentry_patched_exception_handler at 0x1072831a0>",
+                "receive": "<function _enable_span_for_middleware.<locals>._create_span_call.<locals>._sentry_receive at 0x10766b740>",
+                "response_started": "False",
+                "exception_handlers": {
+                  "<class 'starlette.exceptions.HTTPException'>": "<function patch_exception_middleware.<locals>._sentry_middleware_init.<locals>._sentry_patched_exception_handler at 0x1072831a0>",
+                  "<class 'starlette.exceptions.WebSocketException'>": "<function patch_exception_middleware.<locals>._sentry_middleware_init.<locals>._sentry_patched_exception_handler at 0x1072831a0>",
+                  "<class 'fastapi.exceptions.RequestValidationError'>": "<function patch_exception_middleware.<locals>._sentry_middleware_init.<locals>._sentry_patched_exception_handler at 0x1072831a0>",
+                  "<class 'fastapi.exceptions.WebSocketRequestValidationError'>": "<function patch_exception_middleware.<locals>._sentry_middleware_init.<locals>._sentry_patched_exception_handler at 0x1072831a0>"
+                }
+              },
+              "in_app": false,
+              "lineno": 42,
+              "module": "starlette._exception_handler",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py",
+              "filename": "starlette/_exception_handler.py",
+              "function": "wrapped_app",
+              "pre_context": [
+                "            if message[\"type\"] == \"http.response.start\":",
+                "                response_started = True",
+                "            await send(message)",
+                "",
+                "        try:"
+              ],
+              "context_line": "            await app(scope, receive, sender)",
+              "post_context": [
+                "        except Exception as exc:",
+                "            handler = None",
+                "",
+                "            if isinstance(exc, HTTPException):",
+                "                handler = status_handlers.get(exc.status_code)"
+              ]
+            },
+            {
+              "vars": {
+                "f": "<function patch_get_request_handler.<locals>._sentry_get_request_handler.<locals>._sentry_app at 0x107282520>",
+                "send": "<function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x107668cc0>",
+                "scope": {
+                  "asgi": {
+                    "version": "'3.0'",
+                    "spec_version": "'2.3'"
+                  },
+                  "path": "'/error/http'",
+                  "type": "'http'",
+                  "client": [
+                    "'127.0.0.1'",
+                    "56041"
+                  ],
+                  "method": "'GET'",
+                  "scheme": "'http'",
+                  "server": [
+                    "'127.0.0.1'",
+                    "8000"
+                  ],
+                  "raw_path": "b'/error/http'",
+                  "root_path": "''",
+                  "http_version": "'1.1'"
+                },
+                "receive": "<function _enable_span_for_middleware.<locals>._create_span_call.<locals>._sentry_receive at 0x10766b740>",
+                "request": {
+                  "asgi": {
+                    "version": "'3.0'",
+                    "spec_version": "'2.3'"
+                  },
+                  "path": "'/error/http'",
+                  "type": "'http'",
+                  "client": [
+                    "'127.0.0.1'",
+                    "56041"
+                  ],
+                  "method": "'GET'",
+                  "scheme": "'http'",
+                  "server": [
+                    "'127.0.0.1'",
+                    "8000"
+                  ],
+                  "raw_path": "b'/error/http'",
+                  "root_path": "''",
+                  "http_version": "'1.1'"
+                }
+              },
+              "in_app": false,
+              "lineno": 73,
+              "module": "starlette.routing",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/starlette/routing.py",
+              "filename": "starlette/routing.py",
+              "function": "app",
+              "pre_context": [
+                "",
+                "    async def app(scope: Scope, receive: Receive, send: Send) -> None:",
+                "        request = Request(scope, receive, send)",
+                "",
+                "        async def app(scope: Scope, receive: Receive, send: Send) -> None:"
+              ],
+              "context_line": "            response = await f(request)",
+              "post_context": [
+                "            await response(scope, receive, send)",
+                "",
+                "        await wrap_app_handling_exceptions(app, request)(scope, receive, send)",
+                "",
+                "    return app"
+              ]
+            },
+            {
+              "vars": {
+                "body": "None",
+                "errors": [],
+                "request": {
+                  "asgi": {
+                    "version": "'3.0'",
+                    "spec_version": "'2.3'"
+                  },
+                  "path": "'/error/http'",
+                  "type": "'http'",
+                  "client": [
+                    "'127.0.0.1'",
+                    "56041"
+                  ],
+                  "method": "'GET'",
+                  "scheme": "'http'",
+                  "server": [
+                    "'127.0.0.1'",
+                    "8000"
+                  ],
+                  "raw_path": "b'/error/http'",
+                  "root_path": "''",
+                  "http_version": "'1.1'"
+                },
+                "response": "None",
+                "dependant": "Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[], dependencies=[], security_requirements=[], name=None, call=<function error_http at 0x107282340>, request_param_name=None, websocket_param_name=None, http_connection_param_name=None, response_param_name=None, background_tasks_param_name=None, security_scopes_param_name=None, security_scopes=None, use_cache=True, path='/error/http', cache_key=(<function error_http at 0x1072822a0>, ()))",
+                "body_field": "None",
+                "file_stack": "<contextlib.AsyncExitStack object at 0x1076d96d0>",
+                "solved_result": "SolvedDependency(values={}, errors=[], background_tasks=None, response=<starlette.responses.Response object at 0x1073166d0>, dependency_cache={})",
+                "async_exit_stack": "<contextlib.AsyncExitStack object at 0x1076d9180>",
+                "actual_response_class": "<class 'starlette.responses.JSONResponse'>"
+              },
+              "in_app": false,
+              "lineno": 301,
+              "module": "fastapi.routing",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/fastapi/routing.py",
+              "filename": "fastapi/routing.py",
+              "function": "app",
+              "pre_context": [
+                "                    async_exit_stack=async_exit_stack,",
+                "                    embed_body_fields=embed_body_fields,",
+                "                )",
+                "                errors = solved_result.errors",
+                "                if not errors:"
+              ],
+              "context_line": "                    raw_response = await run_endpoint_function(",
+              "post_context": [
+                "                        dependant=dependant,",
+                "                        values=solved_result.values,",
+                "                        is_coroutine=is_coroutine,",
+                "                    )",
+                "                    if isinstance(raw_response, Response):"
+              ]
+            },
+            {
+              "vars": {
+                "values": {},
+                "dependant": "Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[], dependencies=[], security_requirements=[], name=None, call=<function error_http at 0x107282340>, request_param_name=None, websocket_param_name=None, http_connection_param_name=None, response_param_name=None, background_tasks_param_name=None, security_scopes_param_name=None, security_scopes=None, use_cache=True, path='/error/http', cache_key=(<function error_http at 0x1072822a0>, ()))",
+                "is_coroutine": "False"
+              },
+              "in_app": false,
+              "lineno": 214,
+              "module": "fastapi.routing",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/fastapi/routing.py",
+              "filename": "fastapi/routing.py",
+              "function": "run_endpoint_function",
+              "pre_context": [
+                "    assert dependant.call is not None, \"dependant.call must be a function\"",
+                "",
+                "    if is_coroutine:",
+                "        return await dependant.call(**values)",
+                "    else:"
+              ],
+              "context_line": "        return await run_in_threadpool(dependant.call, **values)",
+              "post_context": [
+                "",
+                "",
+                "def get_request_handler(",
+                "    dependant: Dependant,",
+                "    body_field: Optional[ModelField] = None,"
+              ]
+            },
+            {
+              "vars": {
+                "args": [],
+                "func": "functools.partial(<function error_http at 0x107282340>)",
+                "kwargs": {}
+              },
+              "in_app": false,
+              "lineno": 37,
+              "module": "starlette.concurrency",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/starlette/concurrency.py",
+              "filename": "starlette/concurrency.py",
+              "function": "run_in_threadpool",
+              "pre_context": [
+                "            task_group.start_soon(run, functools.partial(func, **kwargs))",
+                "",
+                "",
+                "async def run_in_threadpool(func: typing.Callable[P, T], *args: P.args, **kwargs: P.kwargs) -> T:",
+                "    func = functools.partial(func, *args, **kwargs)"
+              ],
+              "context_line": "    return await anyio.to_thread.run_sync(func)",
+              "post_context": [
+                "",
+                "",
+                "class _StopIteration(Exception):",
+                "    pass",
+                ""
+              ]
+            },
+            {
+              "vars": {
+                "args": [],
+                "func": "functools.partial(<function error_http at 0x107282340>)",
+                "limiter": "None",
+                "cancellable": "None",
+                "abandon_on_cancel": "False"
+              },
+              "in_app": false,
+              "lineno": 63,
+              "module": "anyio.to_thread",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/anyio/to_thread.py",
+              "filename": "anyio/to_thread.py",
+              "function": "run_sync",
+              "pre_context": [
+                "            \"deprecated since AnyIO 4.1.0; use `abandon_on_cancel=` instead\",",
+                "            DeprecationWarning,",
+                "            stacklevel=2,",
+                "        )",
+                ""
+              ],
+              "context_line": "    return await get_async_backend().run_sync_in_worker_thread(",
+              "post_context": [
+                "        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter",
+                "    )",
+                "",
+                "",
+                "def current_default_thread_limiter() -> CapacityLimiter:"
+              ]
+            },
+            {
+              "vars": {
+                "cls": "<class 'anyio._backends._asyncio.AsyncIOBackend'>",
+                "args": [],
+                "func": "functools.partial(<function error_http at 0x107282340>)",
+                "scope": "<anyio._backends._asyncio.CancelScope object at 0x1072c2e10>",
+                "future": "<Future finished exception=HTTPException(status_code=500, detail='Błąd testowy zgłoszony do Sentry')>",
+                "limiter": "None",
+                "workers": [
+                  "<WorkerThread(AnyIO worker thread, started 6203224064)>"
+                ],
+                "root_task": "<Task pending name='Task-1' coro=<Server.serve() running at /Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/uvicorn/server.py:70> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_run_until_complete_cb() at /opt/homebrew/Cellar/python@3.13/3.13.9_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181, WorkerThread.stop()]>",
+                "idle_workers": [
+                  "<WorkerThread(AnyIO worker thread, started 6203224064)>"
+                ],
+                "abandon_on_cancel": "False"
+              },
+              "in_app": false,
+              "lineno": 2518,
+              "module": "anyio._backends._asyncio",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py",
+              "filename": "anyio/_backends/_asyncio.py",
+              "function": "run_sync_in_worker_thread",
+              "pre_context": [
+                "                    worker_scope = scope",
+                "                else:",
+                "                    worker_scope = scope._parent_scope",
+                "",
+                "                worker.queue.put_nowait((context, func, args, future, worker_scope))"
+              ],
+              "context_line": "                return await future",
+              "post_context": [
+                "",
+                "    @classmethod",
+                "    def check_cancelled(cls) -> None:",
+                "        scope: CancelScope | None = threadlocals.current_cancel_scope",
+                "        while scope is not None:"
+              ]
+            },
+            {
+              "vars": {
+                "self": "<WorkerThread(AnyIO worker thread, started 6203224064)>"
+              },
+              "in_app": false,
+              "lineno": 1002,
+              "module": "anyio._backends._asyncio",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py",
+              "filename": "anyio/_backends/_asyncio.py",
+              "function": "run",
+              "pre_context": [
+                "                if not future.cancelled():",
+                "                    result = None",
+                "                    exception: BaseException | None = None",
+                "                    threadlocals.current_cancel_scope = cancel_scope",
+                "                    try:"
+              ],
+              "context_line": "                        result = context.run(func, *args)",
+              "post_context": [
+                "                    except BaseException as exc:",
+                "                        exception = exc",
+                "                    finally:",
+                "                        del threadlocals.current_cancel_scope",
+                ""
+              ]
+            },
+            {
+              "vars": {},
+              "in_app": true,
+              "lineno": 56,
+              "module": "main",
+              "abs_path": "/Users/m4ynor/Documents/projects/mbank/sentry-research/main.py",
+              "filename": "main.py",
+              "function": "error_http",
+              "pre_context": [
+                "def error_http() -> None:",
+                "    try:",
+                "        raise RuntimeError(\"To jest testowy błąd RuntimeError\")",
+                "    except RuntimeError as exc:",
+                "        sentry_sdk.capture_exception(exc)"
+              ],
+              "context_line": "    raise HTTPException(status_code=500, detail=\"Błąd testowy zgłoszony do Sentry\")",
+              "post_context": [
+                "",
+                "",
+                "@app.get(\"/sentry/message\")",
+                "def sentry_message() -> dict[str, str]:",
+                "    sentry_sdk.capture_message(\"Testowa wiadomość z endpointu /sentry/message\")"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "modules": {
+    "h11": "0.16.0",
+    "pip": "26.1.1",
+    "idna": "3.13",
+    "anyio": "4.13.0",
+    "click": "8.3.3",
+    "certifi": "2026.4.22",
+    "fastapi": "0.115.12",
+    "urllib3": "2.6.3",
+    "uvicorn": "0.34.2",
+    "pydantic": "2.13.3",
+    "starlette": "0.46.2",
+    "sentry-sdk": "2.28.0",
+    "pydantic_core": "2.46.3",
+    "python-dotenv": "1.1.0",
+    "annotated-types": "0.7.0",
+    "typing-inspection": "0.4.2",
+    "typing_extensions": "4.15.0"
+  },
+  "contexts": {
+    "trace": {
+      "op": "middleware.starlette",
+      "type": "trace",
+      "origin": "auto.http.starlette",
+      "span_id": "8d84b0581d0f1821",
+      "trace_id": "a8abb9b78d2a41719a433012e17355b6",
+      "parent_span_id": "9e092bb646d20731"
+    },
+    "runtime": {
+      "name": "CPython",
+      "type": "runtime",
+      "version": "3.13.9"
+    }
+  },
+  "sdk": {
+    "name": "sentry.python.fastapi",
+    "version": "2.28.0",
+    "packages": [
+      {
+        "name": "pypi:sentry-sdk",
+        "version": "2.28.0"
+      }
+    ],
+    "integrations": [
+      "argv",
+      "atexit",
+      "dedupe",
+      "excepthook",
+      "fastapi",
+      "logging",
+      "modules",
+      "starlette",
+      "stdlib",
+      "threading"
+    ]
+  },
+  "type": "error",
+  "request": {
+    "url": "http://127.0.0.1:8000/error/http",
+    "method": "GET",
+    "headers": [
+      [
+        "accept",
+        "application/json"
+      ],
+      [
+        "accept-encoding",
+        "gzip, deflate"
+      ],
+      [
+        "accept-language",
+        "en-GB,en;q=0.9"
+      ],
+      [
+        "connection",
+        "keep-alive"
+      ],
+      [
+        "host",
+        "127.0.0.1:8000"
+      ],
+      [
+        "priority",
+        "u=3, i"
+      ],
+      [
+        "referer",
+        "http://127.0.0.1:8000/docs"
+      ],
+      [
+        "sec-fetch-dest",
+        "empty"
+      ],
+      [
+        "sec-fetch-mode",
+        "cors"
+      ],
+      [
+        "sec-fetch-site",
+        "same-origin"
+      ],
+      [
+        "user-agent",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15"
+      ]
+    ]
+  },
+  "environment": "local",
+  "extra": {
+    "sys.argv": [
+      "/Users/m4ynor/Documents/projects/mbank/sentry-research/.venv/bin/uvicorn",
+      "main:app",
+      "--reload"
+    ]
+  },
+  "hashes": [
+    "c6fb9b6280216d1718ae386b2bcac365"
+  ],
+  "title": "HTTPException: Błąd testowy zgłoszony do Sentry",
+  "transaction": "/error/http",
+  "tags": {
+    "release": "sentry-research@0.1.0",
+    "environment": "local",
+    "server_name": "m4cbook.local"
+  }
+}

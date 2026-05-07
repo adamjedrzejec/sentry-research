@@ -1,14 +1,17 @@
 import os
+from pathlib import Path
 
 import sentry_sdk
 from fastapi import FastAPI, HTTPException
+from dotenv import load_dotenv
 from sentry_sdk.integrations.fastapi import FastApiIntegration
+
+BASE_DIR = Path(__file__).resolve().parent
+load_dotenv(BASE_DIR / ".env")
 
 SENTRY_DSN = os.getenv("SENTRY_DSN")
 ENVIRONMENT = os.getenv("SENTRY_ENVIRONMENT", "local")
 RELEASE = os.getenv("SENTRY_RELEASE", "sentry-research@0.1.0")
-
-print(f"Sentry DSN: {SENTRY_DSN}")
 
 if SENTRY_DSN:
     sentry_sdk.init(
