@@ -39,6 +39,7 @@ Dokumentacja Swagger: `http://127.0.0.1:8000/docs`
 - `GET /sentry/message` — wysyła testową wiadomość do Sentry (`capture_message`).
 - `GET /api/orders/{order_id}/details` — realistyczny błąd: dla nieistniejącego ID rzuca wyjątek typu `NoneType`.
 - `POST /api/invoices/create` — realistyczny błąd: podwójne parsowanie JSON (`json.loads`), np. body `{ "metadata": { "source": "web" } }`.
+- `GET /api/users/stats` — realistyczny błąd: liczenie średniej wieku dla pustej listy aktywnych użytkowników (`division by zero`).
 
 ## Uwaga
 

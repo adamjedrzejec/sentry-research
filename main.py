@@ -40,6 +40,8 @@ FAKE_ORDERS_DB: dict[str, dict[str, Any]] = {
     }
 }
 
+FAKE_USERS: list[dict[str, Any]] = []
+
 
 @app.get("/")
 def root() -> dict[str, str]:
@@ -93,6 +95,17 @@ def create_invoice(payload: InvoiceCreatePayload) -> dict[str, Any]:
     return {
         "id": f"inv-{os.urandom(4).hex()}",
         "metadata": metadata,
+    }
+
+
+@app.get("/api/users/stats")
+def users_stats() -> dict[str, float | int]:
+    active_users = [user for user in FAKE_USERS if user.get("is_active")]
+    average_age = sum(user["age"] for user in active_users) / len(active_users)
+
+    return {
+        "active_users_count": len(active_users),
+        "average_age": average_age,
     }
 
 
