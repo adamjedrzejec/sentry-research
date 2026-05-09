@@ -37,6 +37,8 @@ Dokumentacja Swagger: `http://127.0.0.1:8000/docs`
 - `GET /error/value` — wymusza `ValueError` (500, przechwytywany przez Sentry).
 - `GET /error/http` — przechwytuje wyjątek ręcznie (`capture_exception`) i zwraca `HTTP 500`.
 - `GET /sentry/message` — wysyła testową wiadomość do Sentry (`capture_message`).
+- `GET /api/orders/{order_id}/details` — realistyczny błąd: dla nieistniejącego ID rzuca wyjątek typu `NoneType`.
+- `POST /api/invoices/create` — realistyczny błąd: podwójne parsowanie JSON (`json.loads`), np. body `{ "metadata": { "source": "web" } }`.
 
 ## Uwaga
 

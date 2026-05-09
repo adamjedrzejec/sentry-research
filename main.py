@@ -1,9 +1,12 @@
 import os
+import json
 from pathlib import Path
+from typing import Any
 
 import sentry_sdk
 from fastapi import FastAPI, HTTPException
 from dotenv import load_dotenv
+from pydantic import BaseModel
 from sentry_sdk.integrations.fastapi import FastApiIntegration
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -24,6 +27,18 @@ if SENTRY_DSN:
     )
 
 app = FastAPI(title="FastAPI + Sentry demo")
+
+
+class InvoiceCreatePayload(BaseModel):
+    metadata: Any
+
+
+FAKE_ORDERS_DB: dict[str, dict[str, Any]] = {
+    "known-order": {
+        "id": "known-order",
+        "customer": {"email": "anna@example.com"},
+    }
+}
 
 
 @app.get("/")
@@ -61,6 +76,26 @@ def sentry_message() -> dict[str, str]:
     sentry_sdk.capture_message("Testowa wiadomość z endpointu /sentry/message")
     return {"status": "message_sent"}
 
+
+@app.get("/api/orders/{order_id}/details")
+def order_details(order_id: str) -> dict[str, str]:
+    order = FAKE_ORDERS_DB.get(order_id)
+
+    customer_email = order["customer"]["email"]
+
+    return {"order_id": order["id"], "customer_email": customer_email}
+
+
+@app.post("/api/invoices/create")
+def create_invoice(payload: InvoiceCreatePayload) -> dict[str, Any]:
+    metadata = json.loads(payload.metadata)
+
+    return {
+        "id": f"inv-{os.urandom(4).hex()}",
+        "metadata": metadata,
+    }
+
+
 @app.get("/sentry-debug")
-async def trigger_error():
+async def trigger_error() -> None:
     division_by_zero = 1 / 0
